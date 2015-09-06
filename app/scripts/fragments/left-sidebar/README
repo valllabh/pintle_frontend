@@ -1,0 +1,5 @@
+
+IMPORT:
+
+@import "../scripts/fragments/left-sidebar/css/left-sidebar.scss"; >> main.scss
+@import <script src="scripts/fragments/left-sidebar/sidebar.js"></script> >> index.html

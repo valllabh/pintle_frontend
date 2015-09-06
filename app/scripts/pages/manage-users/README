@@ -1,0 +1,5 @@
+
+IMPROT:
+
+@import "../scripts/pages/manage-users/css/manage-users.scss"; >> main.scss
+@import <script src="scripts/pages/manage-users/manage-users.js"></script> >> index.html

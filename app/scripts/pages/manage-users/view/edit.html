@@ -1,0 +1,81 @@
+<div class="row manage-users">
+<section>
+  <div class="page-header row">
+    <h3 class="inline-block">Edit User</h3>
+    <i class="spacer _1"></i>
+    <a history-back class="btn btn-default btn-xs inline-block">Back</a>
+  </div>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-sm-8">
+
+      <!-- FORM : YOU CAN DISABLE, HTML5 VALIDATION BY USING "novalidate" ATTRIBUTE-->
+      <div class="alert alert-danger" role="alert" ng-show="showError">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        Invalid User
+      </div>
+
+      <form name="userForm" ng-submit="onSubmit()" novalidate ng-if="user">
+
+        <!-- NAME -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && (userForm.name.$dirty || userForm.$submitted)}">
+          <label>Name</label>
+          <input type="text" name="name" class="form-control" ng-model="user.name" placeholder="Your Name" ng-required="true">
+          <p ng-show="userForm.name.$error.required && (userForm.name.$dirty || userForm.$submitted)" class="help-block">You name is required.</p>
+        </div>
+
+        <!-- USERNAME -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && (userForm.username.$dirty || userForm.$submitted)}">
+          <label>Username</label>
+          <input type="text" name="username" class="form-control" ng-model="user.username" placeholder="Your Username" ng-minlength="3" ng-maxlength="8" ng-required="true">
+          <p ng-show="userForm.username.$error.uniqueness && (userForm.username.$dirty || userForm.$submitted)" class="help-block">Username is already taken.</p>
+          <p ng-show="userForm.username.$error.required && (userForm.username.$dirty || userForm.$submitted)" class="help-block">You username is required.</p>
+          <p ng-show="userForm.username.$error.minlength && (userForm.username.$dirty || userForm.$submitted)" class="help-block">Username is too short.</p>
+          <p ng-show="userForm.username.$error.maxlength && (userForm.username.$dirty || userForm.$submitted)" class="help-block">Username is too long.</p>
+        </div>
+
+        <!-- EMAIL -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && (userForm.email.$dirty || userForm.$submitted)}">
+          <label>Email</label>
+          <input type="email" name="email" class="form-control" ng-model="user.email" placeholder="Your Email Address" ng-required="true">
+          <p ng-show="userForm.email.$error.uniqueness && (userForm.email.$dirty || userForm.$submitted)" class="help-block">Email is already registered.</p>
+          <p ng-show="userForm.email.$error.required && (userForm.email.$dirty || userForm.$submitted)" class="help-block">Email is required.</p>
+          <p ng-show="userForm.email.$error.email && (userForm.email.$dirty || userForm.$submitted)" class="help-block">Enter a valid email.</p>
+        </div>
+
+        <!-- PASSWORD -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && (userForm.password.$dirty || userForm.$submitted)}">
+          <label>Password</label>
+          <input type="Password" name="password" class="form-control" ng-model="user.password" placeholder="Your Password">
+          <p ng-show="userForm.password.$error.required && (userForm.password.$dirty || userForm.$submitted)" class="help-block">Your password is required.</p>
+        </div>
+
+        <!-- CONFIRM PASSWORD -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.confirmPassword.$invalid && (userForm.confirmPassword.$dirty || userForm.$submitted)}">
+          <label>Confirm Password</label>
+          <input type="Password" name="confirmPassword" class="form-control" ng-model="user.confirmPassword" placeholder="Confirm Your Password" ng-compare="password" ng-required="(user.password.length)">
+          <p ng-show="userForm.confirmPassword.$error.required && (userForm.confirmPassword.$dirty || userForm.$submitted)" class="help-block">Your confirm password is required.</p>
+          <p ng-show="userForm.confirmPassword.$error.compare && (userForm.confirmPassword.$dirty || userForm.$submitted)" class="help-block">Confirm password doesnot match.</p>
+        </div>
+
+        <!-- CAPBILITIES -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.capabilities.$invalid && (userForm.capabilities.$dirty || userForm.$submitted)}">
+          <label>Capabilities</label>
+          <textarea name="capabilities" ng-model="user.capabilities" placeholder="Enter Capabilities, 1 per line." rows="4" class="form-control" ng-required="true"></textarea>
+          <p ng-show="userForm.capabilities.$error.required && (userForm.capabilities.$dirty || userForm.$submitted)" class="help-block">User must have least one capability.</p>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+        <div class="form-status inline-block">
+          <div ng-show="statuses.submitting" class="text-info small">Saving please wait!</div>
+          <div ng-show="statuses.saved" class="text-success small">Saved!</div>
+          <div ng-show="statuses.error" class="text-danger small">Something went wrong!</div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <br />
+</section>
+</div>

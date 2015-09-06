@@ -1,0 +1,23 @@
+
+<div class="dropdown btn-group margin-all" role="group" ng-show="!$root.config.isMobile">
+  <button class="btn btn-default dropdown-toggle" type="button" id="select-menu-{{eid}}" data-toggle="dropdown" aria-expanded="true">
+    {{data.selected || data.name}}
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="select-menu-{{eid}}">
+    <li role="presentation" class="dropdown-header" value={{data.name}}>{{data.name}}</li>
+    <li ng-repeat="item in data.items track by $index" role="presentation">
+      <a role="menuitem" tabindex="-1" value={{item.value}}>
+        {{item.label}}
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+<div class="btn-group-mobile"  ng-show="$root.config.isMobile">
+   <select ng-model="selectedItem" class="select-menu">
+         <option value="" disabled="disabled" ng-selected="!data.selected"  value="{{data.name}}">{{data.name}}</option>
+         <option ng-repeat="item in data.items track by $index" value="{{item.value}}" ng-selected="item.value == data.selected">{{item.label}}</option>
+    </select>
+</div>

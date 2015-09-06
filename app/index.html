@@ -1,0 +1,141 @@
+<!doctype html>
+<html class="no-js" ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<title ng-bind-html="this.pageMetaTitle"></title>
+	<meta name="description" content="">
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+	<!-- build:css(.) styles/vendor.css -->
+	<!-- bower:css -->
+	<link rel="stylesheet" href="bower_components/angular-datepicker/dist/index.css" />
+	<link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+	<link rel="stylesheet" href="bower_components/metisMenu/dist/metisMenu.css" />
+	<link rel="stylesheet" href="bower_components/selectize/dist/css/selectize.css" />
+	<!-- endbower -->
+	<!-- endbuild -->
+	<!-- build:css(.tmp) styles/main.css -->
+	<link rel="stylesheet" href="styles/main.css">
+	<!-- endbuild -->
+	<link href="https://fontastic.s3.amazonaws.com/mwNGD7Fq79pdPgRgsxVjMi/icons.css" rel="stylesheet">
+</head>
+<body>
+
+	<div class="container-fluid">
+		<header class="header row" ng-controller="Header"></header>
+
+		<div class="row">
+			<aside class="sidebar-menu" ng-controller="sidebar" ng-if="isUserLoggedin">
+				<section class="menu" data-mask=".sidebar-menu .mask" data-trigger=".menu-toggle-button"></section>
+				<div class="mask"></div>
+			</aside>
+		</div>
+		<div class="loader"></div>
+		<div class="row">
+				<div ng-view="" class="main-view"></div>
+		</div>
+
+		<div class="row">
+			<footer class="main-footer" ng-controller="footer">
+				<div class="footerDirective">	</div>
+			</footer>
+		</div>
+
+	</div>
+
+	<bg-slider ng-if="isUserLoggedin"></bg-slider>
+
+	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+	<script>
+	!function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+		(A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+		r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+	}(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-62375656-2');
+	</script>
+
+	<!-- build:js(.) scripts/vendor.js -->
+	<!-- bower:js -->
+	<script src="bower_components/modernizr/modernizr.js"></script>
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+	<script src="bower_components/angular-animate/angular-animate.js"></script>
+	<script src="bower_components/angular-aria/angular-aria.js"></script>
+	<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+	<script src="bower_components/angular-messages/angular-messages.js"></script>
+	<script src="bower_components/angular-resource/angular-resource.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+	<script src="bower_components/angular-touch/angular-touch.js"></script>
+	<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+	<script src="bower_components/angular-datepicker/dist/index.js"></script>
+	<script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+	<script src="bower_components/metisMenu/dist/metisMenu.js"></script>
+	<script src="bower_components/underscore/underscore.js"></script>
+	<script src="bower_components/selectn/selectn.js"></script>
+	<script src="bower_components/lodash/lodash.js"></script>
+	<script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+	<script src="bower_components/sifter/sifter.js"></script>
+	<script src="bower_components/microplugin/src/microplugin.js"></script>
+	<script src="bower_components/selectize/dist/js/selectize.js"></script>
+	<script src="bower_components/angular-selectize2/dist/selectize.js"></script>
+	<!-- endbower -->
+	<!-- endbuild -->
+
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+	<!-- build:js({.tmp,app}) scripts/scripts.js -->
+
+	<script src="scripts/app.js"></script>
+
+	<script src="scripts/core/util/util.js"></script>
+	<script src="scripts/core/session/session.js"></script>
+	<script src="scripts/core/config/config.js"></script>
+
+	<script src="scripts/fragments/header/header.js"></script>
+	<script src="scripts/fragments/footer/footer.js"></script>
+	<script src="scripts/fragments/left-sidebar/sidebar.js"></script>
+
+	<script src="scripts/fragments/components/components.js"></script>
+	<script src="scripts/fragments/components/select-menu/select-menu.js"></script>
+	<script src="scripts/fragments/components/button-group/button-group.js"></script>
+	<script src="scripts/fragments/components/bg-slider/bg-slider.js"></script>
+	<script src="scripts/fragments/components/date-picker/date-picker.js"></script>
+
+	<script src="scripts/filters/filters.js"></script>
+	<script src="scripts/filters/word-filter/word-filter.js"></script>
+
+	<script src="scripts/pages/pages.js"></script>
+	<script src="scripts/pages/_services/services.js"></script>
+
+	<script src="scripts/pages/auth/auth.js"></script>
+	<script src="scripts/pages/home/home.js"></script>
+	<script src="scripts/pages/visits/visits.js"></script>
+	<script src="scripts/pages/visit-info/visit-info.js"></script>
+	<script src="scripts/pages/visit-feedback/visit-feedback.js"></script>
+	<script src="scripts/pages/visit-agreements/visit-agreement.js"></script>
+	<script src="scripts/pages/visit-resources/visit-resources.js"></script>
+	<script src="scripts/pages/visit-safety-briefing/visit-safety-briefing.js"></script>
+	<script src="scripts/pages/personal-info/personal-info.js"></script>
+
+	<script src="scripts/pages/manage/manage.js"></script>
+	<script src="scripts/pages/manage/manage-plant/listing.js"></script>
+	<script src="scripts/pages/manage/manage-plant/add.js"></script>
+	<script src="scripts/pages/manage/manage-plant/edit.js"></script>
+	<script src="scripts/pages/manage/manage-visit/listing.js"></script>
+	<script src="scripts/pages/manage/manage-visit/add.js"></script>
+	<script src="scripts/pages/manage/manage-visit/edit.js"></script>
+	<script src="scripts/pages/manage/manage-user/listing.js"></script>
+	<script src="scripts/pages/manage/manage-user/add.js"></script>
+	<script src="scripts/pages/manage/manage-user/edit.js"></script>
+
+	<script src="scripts/pages/manage-users/listing.js"></script>
+
+	<script src="scripts/pages/manage-users/add.js"></script>
+	<script src="scripts/pages/manage-users/edit.js"></script>
+
+	<!-- endbuild -->
+
+</body>
+</html>

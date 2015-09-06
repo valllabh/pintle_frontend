@@ -1,0 +1,12 @@
+<div class="btn-group margin-all" data-toggle="buttons">
+  <label
+    class="btn btn-default"
+    title="{{item.title}}"
+    value="{{item.value}}"
+    ng-class="isSelected(item.value) ? 'active' : ''"
+    ng-repeat="item in config.options track by $index"
+    tooltip
+  >
+    {{item.label}}
+  </label>
+</div>

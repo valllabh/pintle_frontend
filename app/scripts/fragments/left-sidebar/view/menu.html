@@ -1,0 +1,15 @@
+<aside class="sidebar">
+	<nav class="sidebar-nav">
+
+		<script type="text/ng-template" id="linksTree">
+			<a ng-href="{{link.url}}"><span class="glyphicon" ng-show="link.links"></span>{{link.name}}</a>
+			<ul ng-if="link.links">
+				<li ng-repeat="link in link.links" ng-include="'linksTree'"></li>
+			</ul>
+		</script>
+
+		<ul class="nav-menu">
+			<li ng-repeat="link in links track by $index" ng-include="'linksTree'"></li>
+		</ul>
+	</nav>
+</aside>

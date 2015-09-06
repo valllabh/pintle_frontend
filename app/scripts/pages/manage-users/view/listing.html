@@ -1,0 +1,51 @@
+<div class="row manage-users">
+  <section>
+    <div class="page-header row">
+      <h3 class="inline-block">Manage Users</h3>
+    </div>
+    <div class="well toolbar right">
+      <a class="btn btn-default btn-sm" ng-href="#/manage-users/add"><span class="glyphicon glyphicon-plus"></span> Add User</a>
+    </div>
+  </section>
+  <section class="content">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="alert alert-danger" role="alert" ng-show="showError">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span>
+          {{messge}}
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>User Name</th>
+                <th>Email</th>
+                <th width="200">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="no-results" ng-if="!users.length">
+                <td colspan="3" class="text-align-center">
+                  No Records Found
+                </td>
+              </tr>
+              <tr ng-repeat="row in users" class="text-align-center">
+                <td>
+                  {{row.username}}
+                </td>
+                <td>
+                  {{row.email}}
+                </td>
+                <td class="table-text-center">
+                  <a class="btn btn-default btn-sm" ng-href="#/manage-users/edit/{{row.id}}"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
